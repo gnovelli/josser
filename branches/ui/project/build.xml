@@ -1,0 +1,96 @@
+<project name="josser" default="build" basedir=".">
+    <description>Builds, tests, and runs the project JOSSER</description>
+
+    <property name="main-class"  value="net.sf.josser.JosserGUI"/>
+
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="dist"  location="dist"/>
+    <property name="zip"  location="zip"/>
+    
+    <property name="sql" location="sql"/>
+    
+    <path id="svnant.classpath">
+        <fileset dir="svnant/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    
+    <taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" classpathref="svnant.classpath"/>
+    <taskdef resource="svntask.properties" classpathref="svnant.classpath"/>  
+    
+    <target name="svnant">
+        <svn javahl="true">
+            <status path="." revisionProperty="revision"/>
+        </svn>
+        <echo>Revision ${revision}</echo>
+    </target> 
+    
+    <target name="init">
+        <tstamp/>
+        <mkdir dir="${build}"/>
+    </target>
+    
+    <target name="compile" depends="init" description="compile the source " >
+        <javac srcdir="${src}" debug="true" destdir="${build}"/>
+    </target>
+    
+    <target name="dist" depends="compile,svnant" description="generate the distribution" >
+        <mkdir dir="${dist}/src"/>
+        <mkdir dir="${dist}/sql"/>
+        <mkdir dir="${dist}/libs"/>
+        <mkdir dir="${dist}/libs/"/>
+        <copy file="dist-build.xml" tofile="${dist}/build.xml"/>
+        <copy file="LICENSE" tofile="${dist}/LICENSE"/>
+        <copy file="README" tofile="${dist}/README"/>
+        <copy file="josser.properties" tofile="${dist}/josser.properties"/>
+        <copy file="LICENSE" tofile="${build}/LICENSE"/>
+        <jar destfile="${dist}/josser.jar" basedir="build">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+        <copy todir="${dist}/src">
+            <fileset dir="src"/>
+        </copy>
+        <copy todir="${dist}/sql">
+            <fileset dir="sql"/>
+        </copy>
+        <copy file="mysql-connector/mysql-connector.jar" tofile="${dist}/libs/mysql-connector.jar"/>
+        <copy file="mysql-connector/COPYING" tofile="${dist}/libs/mysql-connector.COPYING.txt"/>
+        <copy file="postgresql-connector/postgresql-connector.jar" tofile="${dist}/libs/postgresql-connector.jar"/>
+        <copy file="postgresql-connector/COPYING" tofile="${dist}/libs/postgresql-connector.COPYING.txt"/>
+    </target>
+    
+    <target name="zip" depends="dist" description="compress dist" >
+        <mkdir dir="${zip}"/>
+        <zip destfile="${zip}/josser-r${revision}.zip"
+             basedir="${dist}"
+        />
+    </target>
+    
+    <target name="clean" description="clean up" >
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+        <delete dir="${zip}"/>
+    </target>
+    
+    <target name="build" depends="clean,init,compile,dist,zip" description="Build all" >
+    </target>
+    <target depends="build" description="Run JOSSER" name="run">
+       <java 
+           dir="."
+           classname="${main-class}"
+           fork="true"
+           failonerror="true"
+           maxmemory="1024m"
+           >
+        <classpath>
+            <pathelement location="${dist}/josser.jar"/>
+            <pathelement location="${dist}/libs/mysql-connector.jar"/>
+            <pathelement location="${dist}/libs/postgresql-connector.jar"/>
+        </classpath>
+        </java>
+    </target>  
+</project>

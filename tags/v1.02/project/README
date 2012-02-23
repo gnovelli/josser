@@ -1,0 +1,47 @@
+ *******************************************************************************
+ * Copyright © Giovanni Novelli                                                *
+ * All Rights Reserved.                                                        *        
+ *******************************************************************************
+
+        HOWTO import Open Directory category Computers 
+       from Open Directory RDF dumps in a MySQL backend
+
+Edit existing josser.properties file changing, if needed,$ username and password
+
+Download last RDF dumps from http://rdf.dmoz.org/
+  http://rdf.dmoz.org/rdf/structure.rdf.u8.gz
+  http://rdf.dmoz.org/rdf/content.rdf.u8.gz
+
+Uncompress and put them in a directory i.e. c:/dmoz:
+  c:/dmoz/structure.rdf.u8 
+  c:/dmoz/content.rdf.u8 
+
+Create mysql DB named dmoz
+
+Execute mysql script sql/dmoz.mysql.sql
+
+Execute JOSSER:
+  ant run
+
+Output:
+
+    ...
+
+    run:
+         [java] COMMITTED: 500000 @ 5 seconds.
+         [java] COMMITTED: 1000000 @ 23 seconds.
+         [java] COMMITTED: 1010788 @ 24 seconds.
+         [java] COMMITTED: 500000 @ 2 seconds.
+         [java] COMMITTED: 1000000 @ 4 seconds.
+         [java] COMMITTED: 1500000 @ 6 seconds.
+         [java] COMMITTED: 2000000 @ 8 seconds.
+         [java] COMMITTED: 2500000 @ 11 seconds.
+         [java] COMMITTED: 3000000 @ 13 seconds.
+         [java] COMMITTED: 3500000 @ 16 seconds.
+         [java] COMMITTED: 4000000 @ 18 seconds.
+         [java] COMMITTED: 4500000 @ 33 seconds.
+         [java] COMMITTED: 5000000 @ 59 seconds.
+         [java] COMMITTED: 5071017 @ 62 seconds.
+
+    BUILD SUCCESSFUL
+    Total time: 2 minutes 25 seconds

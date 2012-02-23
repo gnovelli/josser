@@ -1,0 +1,10 @@
+dmoz_symbolics
+dmoz_related
+dmoz_newsgroups
+dmoz_narrows
+dmoz_letterbars
+dmoz_externalpages
+dmoz_editors
+dmoz_categories
+dmoz_altlangs
+dmoz_aliases

@@ -1,0 +1,61 @@
+<project name="josser" default="zip" basedir=".">
+  <description>
+        Ant Build Project for JOSSER
+    </description>
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="zip"  location="zip"/>
+
+  <property name="sql" location="sql"/>
+
+  <path id="svnant.classpath">
+    <fileset dir="svnant">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" classpathref="svnant.classpath"/>
+  <taskdef resource="svntask.properties" classpathref="svnant.classpath"/>  
+  
+    <target name="svnant">
+         <svn javahl="true">
+             <status path="." revisionProperty="revision"/>
+         </svn>
+         <echo>Revision ${revision}</echo>
+    </target> 
+
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source " >
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile,svnant" description="generate the distribution" >
+    <mkdir dir="${dist}/sql"/>
+    <copyfile src="LICENSE" dest="${dist}/LICENSE"/>
+    <copyfile src="josser.properties" dest="${dist}/josser.properties"/>
+    <copyfile src="LICENSE" dest="${build}/LICENSE"/>
+    <jar jarfile="${dist}/josser.jar" basedir="${build}"/>
+    <copy todir="${dist}/sql">
+        <fileset dir="sql"/>
+    </copy>
+  </target>
+
+  <target name="zip" depends="dist" description="compress dist" >
+      <mkdir dir="${zip}"/>
+      <zip destfile="${zip}/josser-r${revision}.zip"
+           basedir="${dist}"
+      />
+  </target>
+
+  <target name="clean" description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete dir="${zip}"/>
+  </target>
+</project>

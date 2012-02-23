@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="dmoz" type="MySQL - 5.0.51">
+   <tables>
+      <table name="dmoz_aliases" numRows="5282" remarks="List of Aliases for ODP Categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="1" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="Alias" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="Title" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="4" name="Target" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="tcatid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="Title" unique="false">
+            <column ascending="true" name="Title"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="tcatid" unique="false">
+            <column ascending="true" name="tcatid"/>
+         </index>
+      </table>
+      <table name="dmoz_altlangs" numRows="4157" remarks="List of categories in other languages for ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="language" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="resource" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="rcatid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="language" unique="false">
+            <column ascending="true" name="language"/>
+         </index>
+         <index name="rcatid" unique="false">
+            <column ascending="true" name="rcatid"/>
+         </index>
+      </table>
+      <table name="dmoz_categories" numRows="8380" remarks="List of ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="Topic" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="aolsearch" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="4" name="dispname" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="5" name="charset" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="6" name="Title" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="Description" nullable="false" remarks="" size="65535" type="text"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="8" name="lastUpdate" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="fatherid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="Title" unique="false">
+            <column ascending="true" name="Title"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="fatherid" unique="false">
+            <column ascending="true" name="fatherid"/>
+         </index>
+      </table>
+      <table name="dmoz_editors" numRows="459" remarks="Lisf of editors for ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="editor" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="catid" nullable="false" remarks="" size="255" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+      </table>
+      <table name="dmoz_externalpages" numRows="124572" remarks="List of external pages for ODP categories." type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="ages" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="type" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="link" nullable="false" remarks="" size="512" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="4" name="Title" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="Description" nullable="false" remarks="" size="65535" type="text"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="priority" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="8" name="mediadate" nullable="false" remarks="" size="255" type="varchar"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="Title" unique="false">
+            <column ascending="true" name="Title"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+      </table>
+      <table name="dmoz_letterbars" numRows="712" remarks="List of related letterbars for ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="letterbar" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="lcatid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="lcatid" unique="false">
+            <column ascending="true" name="lcatid"/>
+         </index>
+      </table>
+      <table name="dmoz_narrows" numRows="7667" remarks="List of related narrows for ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="narrow" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="priority" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="ncatid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="ncatid" unique="false">
+            <column ascending="true" name="ncatid"/>
+         </index>
+         <index name="priority" unique="false">
+            <column ascending="true" name="priority"/>
+         </index>
+      </table>
+      <table name="dmoz_newsgroups" numRows="2888" remarks="List of related newsgroups for ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="type" nullable="false" remarks="" size="128" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="newsGroup" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+      </table>
+      <table name="dmoz_related" numRows="9681" remarks="List of related categories for ODP categories." type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="related" nullable="false" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="rcatid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="rcatid" unique="false">
+            <column ascending="true" name="rcatid"/>
+         </index>
+      </table>
+      <table name="dmoz_symbolics" numRows="8564" remarks="List of related symbolics for ODP categories" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="resource" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="symbolic" nullable="false" remarks="" size="255" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="priority" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="catid" nullable="false" remarks="" size="11" type="int"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="scatid" nullable="false" remarks="" size="11" type="int"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="catid" unique="false">
+            <column ascending="true" name="catid"/>
+         </index>
+         <index name="priority" unique="false">
+            <column ascending="true" name="priority"/>
+         </index>
+         <index name="scatid" unique="false">
+            <column ascending="true" name="scatid"/>
+         </index>
+      </table>
+   </tables>
+</database>

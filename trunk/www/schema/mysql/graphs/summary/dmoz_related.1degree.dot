@@ -1,0 +1,28 @@
+// dot 2.17.20080109.0540 on Windows Vista 6.0
+digraph "dmoz_related" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "dmoz_related" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD PORT="dmoz_related.heading" COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">dmoz_related</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="related" COLSPAN="3" ALIGN="LEFT">related</TD></TR>
+      <TR><TD PORT="catid" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">catid</TD></TR>
+      <TR><TD PORT="rcatid" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">rcatid</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">9.681 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/dmoz_related.html#"
+    tooltip="dmoz_related"
+  ];
+}

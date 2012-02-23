@@ -1,0 +1,33 @@
+// dot 2.17.20080109.0540 on Windows Vista 6.0
+digraph "dmoz_externalpages" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "dmoz_externalpages" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD PORT="dmoz_externalpages.heading" COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">dmoz_externalpages</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="ages" COLSPAN="3" ALIGN="LEFT">ages</TD></TR>
+      <TR><TD PORT="type" COLSPAN="3" ALIGN="LEFT">type</TD></TR>
+      <TR><TD PORT="link" COLSPAN="3" ALIGN="LEFT">link</TD></TR>
+      <TR><TD PORT="Title" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">Title</TD></TR>
+      <TR><TD PORT="Description" COLSPAN="3" ALIGN="LEFT">Description</TD></TR>
+      <TR><TD PORT="catid" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">catid</TD></TR>
+      <TR><TD PORT="priority" COLSPAN="3" ALIGN="LEFT">priority</TD></TR>
+      <TR><TD PORT="mediadate" COLSPAN="3" ALIGN="LEFT">mediadate</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">124.572 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/dmoz_externalpages.html#"
+    tooltip="dmoz_externalpages"
+  ];
+}

@@ -1,0 +1,17 @@
+<project name="test" default="svn.test" basedir=".">
+     <path id="svnant.classpath"  >
+        <fileset dir="svnant/lib/" >
+            <include name="*.jar" />
+        </fileset>
+    </path> 
+
+    <taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" classpathref="svnant.classpath"/>
+    <taskdef resource="svntask.properties" classpathref="svnant.classpath"/>  
+
+    <target name="svn.test">
+         <svn javahl="true">
+             <status path="." revisionProperty="revision"/>
+         </svn>
+         <echo>Revision ${revision}</echo>
+    </target>
+</project> 
